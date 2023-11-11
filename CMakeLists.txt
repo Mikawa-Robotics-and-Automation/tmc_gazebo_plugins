@@ -15,13 +15,13 @@ find_package(tmc_control_msgs REQUIRED)
 find_package(trajectory_msgs REQUIRED)
 
 add_library(tmc_gazebo_ros_mimic_joint SHARED src/gazebo_ros_mimic_joint.cpp)
-ament_target_dependencies(tmc_gazebo_ros_mimic_joint gazebo_dev gazebo_ros rclcpp)
+ament_target_dependencies(tmc_gazebo_ros_mimic_joint gazebo_dev gazebo_ros gazebo_msgs rclcpp)
 
 add_library(tmc_gazebo_ros_hrh_gripper SHARED src/gazebo_ros_hrh_gripper.cpp)
-ament_target_dependencies(tmc_gazebo_ros_hrh_gripper angles control_msgs control_toolbox gazebo_dev gazebo_ros rclcpp rclcpp_action tmc_control_msgs trajectory_msgs)
+ament_target_dependencies(tmc_gazebo_ros_hrh_gripper angles control_msgs control_toolbox gazebo_dev gazebo_ros gazebo_msgs rclcpp rclcpp_action tmc_control_msgs trajectory_msgs)
 
 add_library(tmc_gazebo_ros_bumper SHARED src/gazebo_ros_bumper.cpp)
-ament_target_dependencies(tmc_gazebo_ros_bumper gazebo_ros)
+ament_target_dependencies(tmc_gazebo_ros_bumper gazebo_ros gazebo_msgs )
 
 install(TARGETS tmc_gazebo_ros_mimic_joint tmc_gazebo_ros_hrh_gripper tmc_gazebo_ros_bumper
         ARCHIVE DESTINATION lib
